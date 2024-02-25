@@ -1,0 +1,12 @@
+app_admin:
+    path: /listUsers
+    controller: App\Controller\UserController::admin
+add:
+    path: /add
+    controller: App\Controller\UserController::add
+edit:
+    path: /edit/{id}
+    controller: App\Controller\UserController::edit
+remove:
+    path: /remove/{id}
+    controller: App\Controller\UserController::remove
