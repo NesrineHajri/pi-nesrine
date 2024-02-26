@@ -10,3 +10,4 @@ edit:
 remove:
     path: /remove/{id}
     controller: App\Controller\UserController::remove
+
