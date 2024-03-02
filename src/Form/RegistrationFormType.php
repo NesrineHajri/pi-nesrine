@@ -66,7 +66,6 @@ class RegistrationFormType extends AbstractType
                 'expanded' => false,
                 'choices' => [
                     '' => '',
-                    'Admin' => 'ROLE_ADMIN',
                     'Freelancer' => 'ROLE_FREELANCER',
                     'Recruteur' => 'ROLE_RECRUTEUR',
                 ],
