@@ -28,6 +28,7 @@ class UserType extends AbstractType
                     'Recruteur' => 'ROLE_RECRUTEUR',
                 ],
             ])
+            ->add('isVerified')
             ->add('password')
             ->add('save', SubmitType::class, ['label' => 'Save']);
         ;

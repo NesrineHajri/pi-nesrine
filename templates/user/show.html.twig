@@ -22,6 +22,7 @@
                         <th>Username</th>
                         <th>Email</th>
                         <th>Roles</th>
+                        <th>Vérification</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -32,6 +33,7 @@
                             <td>{{ user.username }}</td>
                             <td>{{ user.email }}</td>
                             <td>{{ user.getFormattedRoles() }}</td>
+                            <td>{{ user.isVerified}}
                             <td>
                                 <a href="{{ path('edit', {'id': user.id}) }}" class="btn btn-success">Update</a>
                                 <a href="{{ path('remove', {'id': user.id}) }}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de supprimer cet utilisateur?')">Delete</a>

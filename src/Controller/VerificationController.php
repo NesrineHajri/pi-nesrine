@@ -10,12 +10,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class VerificationController extends AbstractController
 {
+    /*
     #[Route('/verify-email', name: 'app_verify_email')]
     public function verifyEmail(Request $request): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         /** @var User|null $user */
+        /*
         $user = $this->getUser();
 
         if (!$user) {
@@ -69,4 +71,5 @@ public function sendEmail(MailerInterface $mailer): Response
 
     return new Response('Email was sent');
 }
+*/
 }

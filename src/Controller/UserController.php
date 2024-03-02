@@ -12,6 +12,7 @@ use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+
 #[Route('/listUsers', name: 'app_admin')]
 class UserController extends AbstractController
 {
@@ -107,4 +108,23 @@ class UserController extends AbstractController
             'f' => $form->createView(),
         ]);
     }
+
+    #[Route('/front/listeprofile', name: 'list_profile_front')]
+    public function listuserFront(UserRepository $repository, Security $security)
+    {
+    // Récupérer l'utilisateur actuellement connecté
+        $user = $security->getUser();
+
+        if ($user) {
+        // Récupérer les données de l'utilisateur actuel
+        $user = $repository->findBy(['id' => $user]);
+    }   else {
+        // Gérer le cas où l'utilisateur n'est pas connecté si nécessaire
+        $user = [];
+    }
+
+        return $this->render("front_home/profile.html.twig",
+             ['tabuser' => $user]
+    );
+}
 }

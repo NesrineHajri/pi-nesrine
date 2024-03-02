@@ -1,10 +1,11 @@
-<h2>Bienvenue sur SkillSeekr, {{ user.username }} !</h2>
+<h1>Hi! Please confirm your email!</h1>
 
-<p>Votre inscription a été confirmée avec succès. Vous êtes désormais membre de SkillSeekr, la plateforme qui favorise l'échange de compétences et le développement professionnel.</p>
+<p>
+    Please confirm your email address by clicking the following link: <br><br>
+    <a href="{{ signedUrl|raw }}">Confirm my Email</a>.
+    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+</p>
 
-<p>Explorez nos fonctionnalités et commencez à tirer parti de notre communauté dynamique. Si vous avez des questions, n'hésitez pas à contacter notre équipe de support.</p>
-
-<p>Merci de faire partie de SkillSeekr !</p>
-
-<p>Cordialement,<br>
-L'équipe SkillSeekr</p>
+<p>
+    Cheers!
+</p>

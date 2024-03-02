@@ -30,8 +30,14 @@
                 
                    {{ form_label(f.password) }}
                    {{ form_widget(f.password, {'attr': {'class': 'form-control'}}) }}
+
+                <div class="form-check">
+                   {{ form_widget(f.isVerified, {'attr': {'class': 'form-check-input'}}) }}
+                   {{ form_label(f.isVerified, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                </div>
                 
-                    {{ form_widget(f.save, {'attr': {'class': 'btn btn-primary'}}) }} <br>
+                  
+                   {{ form_widget(f.save, {'attr': {'class': 'btn btn-primary'}}) }} <br>
                 
             
 

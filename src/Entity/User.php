@@ -163,7 +163,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->isVerified;
     }
-
+    
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
