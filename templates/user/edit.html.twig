@@ -17,27 +17,36 @@
        
 
         {{ form_start(f, {'attr': {'novalidate': 'novalidate'}}) }}
-
+                <div class="col-6">  
                     {{ form_label(f.username) }}
                     {{ form_widget(f.username, {'attr': {'class': 'form-control'}}) }}
+                </div>
 
+                <div class="col-6">
                     {{ form_label(f.email) }}
                     {{ form_widget(f.email, {'attr': {'class': 'form-control'}}) }}
-                
-                
+                </div>
+                 
+                <div class="col-6">
                     <label for="user_roles">Role</label>
                     {{ form_widget(f.roles, {'attr': {'class': 'form-control'}}) }} <br>
-                
-                   {{ form_label(f.password) }}
-                   {{ form_widget(f.password, {'attr': {'class': 'form-control'}}) }}
+                </div>
 
-                <div class="form-check">
-                   {{ form_widget(f.isVerified, {'attr': {'class': 'form-check-input'}}) }}
+               <div class="form-check">
                    {{ form_label(f.isVerified, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                   {{ form_widget(f.isVerified, {'attr': {'class': 'form-check-input'}}) }}
+                <div class="form-error-message">
+                   {{ form_errors(f.isVerified) }}
+                </div>
                 </div>
                 
+                <div class="col-6">
+                   {{ form_label(f.password) }}
+                   {{ form_widget(f.password, {'attr': {'class': 'form-control'}}) }}
+                </div> <br>
+
                   
-                   {{ form_widget(f.save, {'attr': {'class': 'btn btn-primary'}}) }} <br>
+                {{ form_widget(f.save, {'attr': {'class': 'btn btn-primary'}}) }} <br>
                 
             
 

@@ -19,12 +19,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180)]
+    #[Assert\NotBlank(message: "This field is required. Please enter your email")]
     /**
-    * @Assert\NotBlank(message="L'adresse e-mail ne peut pas être vide.")
-    * @Assert\Regex(
-    *     pattern="/@/",
-    *     message="L'adresse e-mail doit contenir le caractère @."
-    * )
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
     */
 
     private ?string $email = null;
@@ -40,9 +39,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank(message: "This field is required. Please enter your password")]
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "This field is required. Please enter your username")]
+    #[Assert\Length(min : 3,max: 255, minMessage : "Le nom doit comporter au moins {{ limit }} caractères",
+    maxMessage: "Le nom ne peut pas dépasser {{ limit }} caractères")]
     private ?string $username = null;
 
     #[ORM\Column(type: 'boolean')]
@@ -74,13 +77,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return (string) $this->email;
     }
-
+/*
     /**
      * @deprecated since Symfony 5.3, use getUserIdentifier instead
      */
+    /*
     public function getUsername(): string
     {
         return (string) $this->email;
+    }
+    */
+
+    public function getUsername(): string
+    {
+        return (string) $this->username;
     }
 
     /**
@@ -107,9 +117,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getPassword(): string
     {
-        return $this->password ?? '';
+        return $this->password;
     }
-    
 
     public function setPassword(string $password): static
     {

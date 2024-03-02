@@ -47,15 +47,20 @@
 
 <body>
 
+ {% block body %}
     <div class="custom-container">
-        {% block body %}
-            {% for flash_error in app.flashes('verify_email_error') %}
-                <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-            {% endfor %}
+       
+    {% if form_errors(registrationForm) %}
+        <div class="alert alert-danger">
+        {#<span style="color:red"></span>#}
+            {{ form_errors(registrationForm) }}
+        </div>
+    {% endif %}
+       
 
             <h1>Register</h1>
 
-            {{ form_errors(registrationForm) }}
+        {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
 
             {{ form_start(registrationForm) }}
                 <div class="form-group">

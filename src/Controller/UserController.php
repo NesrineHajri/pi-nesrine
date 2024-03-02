@@ -11,7 +11,7 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
+use Symfony\Component\Security\Core\Security;
 
 #[Route('/listUsers', name: 'app_admin')]
 class UserController extends AbstractController

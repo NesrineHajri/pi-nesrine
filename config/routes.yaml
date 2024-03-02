@@ -11,3 +11,6 @@ remove:
     path: /remove/{id}
     controller: App\Controller\UserController::remove
 
+list_profile_front:
+    path: /front/listeprofile
+    controller: 'App\Controller\UserController::listuserFront'
